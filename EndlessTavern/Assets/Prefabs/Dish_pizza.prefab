@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2649732546379002800}
   - component: {fileID: 2649732546379002803}
   m_Layer: 9
-  m_Name: Dish_chicken_leg
+  m_Name: Dish_pizza
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: dcc56c9d984e30a4f8e016cc26d30683, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a2680c021f91aa44cae5b1d07361fa6c, type: 3}
   m_Color: {r: 0.7019608, g: 0.7019608, b: 0.7019608, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -145,4 +145,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5589283ddbf66c4c9f039dfccaf9294, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dishName: 0
+  dishName: 4

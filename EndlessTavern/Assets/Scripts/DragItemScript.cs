@@ -17,12 +17,18 @@ public class DragItemScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     Vector3 _offsetToMouse;
     float _zDistanceToCamera;
 
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        DraggedInstance = gameObject;
+        DraggedInstance.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+    }
+    
     public void OnBeginDrag(PointerEventData eventData)
     {
         DraggedInstance = gameObject;
+        DraggedInstance.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         _startPosition = transform.position;
         _zDistanceToCamera = Mathf.Abs(_startPosition.z - Camera.main.transform.position.z);
-
         _offsetToMouse = _startPosition - Camera.main.ScreenToWorldPoint(
             new Vector3(Input.mousePosition.x, Input.mousePosition.y, _zDistanceToCamera)
         );
@@ -30,6 +36,7 @@ public class DragItemScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
     public void OnDrag(PointerEventData eventData)
     {
+        DraggedInstance.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         if (Input.touchCount > 1)
             return;
 
@@ -40,6 +47,8 @@ public class DragItemScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        DraggedInstance.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        Destroy(DraggedInstance);
         DraggedInstance = null;
         _offsetToMouse = Vector3.zero;
     }
