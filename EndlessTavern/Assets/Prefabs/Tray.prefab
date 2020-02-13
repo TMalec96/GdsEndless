@@ -159,12 +159,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29af437f93d480342856d0829a7bfe86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreValue: 100
   dishes:
   - {fileID: 2664888216739570421, guid: ecc3764d34299b24ca124e8e2a35ed18, type: 3}
   - {fileID: 2649732546379002803, guid: 589e3f4a689c3d04abce96581919112f, type: 3}
   - {fileID: 2649732546379002803, guid: 8e00bcdea31547a408a90f6552a0dc8e, type: 3}
   - {fileID: 2649732546379002803, guid: 93967411d5767604e80d5bcb5689b8b6, type: 3}
   - {fileID: 2649732546379002803, guid: c491593806c26214fafd0b8773fd4554, type: 3}
+  timeBonusForCompleteOrder: 4
+  timePenaltyForOrder: 4
+  timerPrefab: {fileID: 0}
 --- !u!61 &224133947725778087
 BoxCollider2D:
   m_ObjectHideFlags: 0
