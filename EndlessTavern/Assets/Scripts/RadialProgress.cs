@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class RadialProgress : MonoBehaviour
@@ -12,29 +13,45 @@ public class RadialProgress : MonoBehaviour
     public float Timer { get => timer; set => timer = value; }
 
     // Use this for initialization
-
+    private float maxTime;
+    private bool stopped = false;
     // Update is called once per frame
     void Start()
     {
-        currentValue = timer;
+        maxTime = timer;
     }
 
     // Update is called once per frame
     private void Update()
     {
-        if (currentValue > 0)
+        currentValue = timer;
+        
+        if (currentValue > 0 && !stopped)
         {
-            currentValue -= Time.deltaTime;
+            
             ProgressIndicator.text = ((int)currentValue).ToString();
 
         }
+        else
+        {
+            ProgressIndicator.text = "";
+        }
 
-        LoadingBar.fillAmount = currentValue / timer;
+        LoadingBar.fillAmount = currentValue / maxTime;
     }
 
     public void Reset()
     {
-        currentValue = timer;
         LoadingBar.fillAmount = 0;
+        LoadingBar.enabled = true;
+        stopped = false;
+    }
+
+    public void Stop()
+    {
+        stopped = true;
+        LoadingBar.fillAmount = 0;
+        ProgressIndicator.text = "";
+        LoadingBar.enabled = false;
     }
 }

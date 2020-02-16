@@ -32,6 +32,8 @@ public class OrderDishSpawner : MonoBehaviour
     //variable for testing 
     private static int orderDelay = 5;
 
+    bool duringClean = false;
+
 
     void Start()
     {
@@ -54,14 +56,23 @@ public class OrderDishSpawner : MonoBehaviour
 
     }
 
-    private void checkForOrderTimeOut()
+    private void countTime()
     {
         currentTimeforOrderCompletion -= Time.deltaTime;
-        if (currentTimeforOrderCompletion < 0)
+        timerInstance.transform.GetChild(0).GetComponent<RadialProgress>().Timer = currentTimeforOrderCompletion;
+    }
+    private void checkForOrderTimeOut()
+    {
+        if (currentTimeforOrderCompletion < 0 && !duringClean)
         {
-            clearTrayFull();
-            currentTimeforOrderCompletion = timeForOrderCompletion;
-            resetTimer();
+            timerInstance.transform.GetChild(0).GetComponent<RadialProgress>().Stop();
+            StartCoroutine(ClearTrayFull(2));
+
+
+        }
+        else
+        {
+            countTime();
         }
 
     }
@@ -69,12 +80,13 @@ public class OrderDishSpawner : MonoBehaviour
     private void resetTimer()
     {
         timerInstance.transform.GetChild(0).GetComponent<RadialProgress>().Reset();
+        currentTimeforOrderCompletion = timeForOrderCompletion;
+
     }
 
     private void setTimerPoisition()
     {
         timerInstance = Instantiate(timerPrefab, transform.position, Quaternion.identity);
-        timerInstance.transform.GetChild(0).GetComponent<RadialProgress>().Timer = timeForOrderCompletion;
         Vector2 timerPosition = timerInstance.transform.GetChild(0).transform.position;
         timerInstance.transform.GetChild(0).transform.position = new Vector2(timerPosition.x + timersPosition, timerPosition.y);
         timersPosition += 640;
@@ -82,11 +94,11 @@ public class OrderDishSpawner : MonoBehaviour
 
     private void checkOrderCompletion()
     {
-        if (orderCompleted)
+        if (orderCompleted && !duringClean)
         {
             FindObjectOfType<GameSession>().Timer += timeBonusForCompleteOrder;
-            clearTray();
-            allocateDishesPosition();
+            StartCoroutine(ClearTray(2));
+            
         }
     }
     private List<Vector2> setDishesPosition()
@@ -136,6 +148,7 @@ public class OrderDishSpawner : MonoBehaviour
             if(dishesInstances.Count == 0)
             {
                 orderCompleted = true;
+                timerInstance.transform.GetChild(0).GetComponent<RadialProgress>().Stop();
             }
             
         }
@@ -143,16 +156,18 @@ public class OrderDishSpawner : MonoBehaviour
         else
         {
             FindObjectOfType<GameSession>().Timer -= timePenaltyForOrder;
-            clearTrayFull();
+            StartCoroutine(ClearTrayFull(2));
         }
         
         
 
     }
 
-    private void clearTrayFull()
+    private IEnumerator ClearTrayFull(int time)
     {
-        FindObjectOfType<GameSession>().AddToBadOrders(1);
+        duringClean = true;
+        DeactivateTray();
+        FindObjectOfType<GameSession>().AddToBadOrders(1);   
         foreach (GameObject objectToDestroy in CompletedDishes)
         {
             Destroy(objectToDestroy);
@@ -163,17 +178,46 @@ public class OrderDishSpawner : MonoBehaviour
         }
         dishesInstances = new List<GameObject>();
         CompletedDishes = new List<GameObject>();
+        yield return new WaitForSeconds(time);
+        resetTimer();
         allocateDishesPosition();
+        AcivateTray();
+        duringClean = false;
     }
 
-    private void clearTray()
+    
+
+   private IEnumerator ClearTray(int time)
     {
+        duringClean = true;
         FindObjectOfType<GameSession>().AddToGoodOrders(1);
         FindObjectOfType<GameSession>().AddToScore(scoreValue);
+        DeactivateTray();
+        
         foreach (GameObject objectToDestroy in CompletedDishes)
         {
             Destroy(objectToDestroy);
         }
         CompletedDishes = new List<GameObject>();
+        yield return new WaitForSeconds(time);
+        resetTimer();
+        allocateDishesPosition();
+        AcivateTray();
+        duringClean = false;
     }
+
+    private void DeactivateTray()
+    {
+        GetComponent<Renderer>().enabled = false;
+        GetComponent<Collider2D>().enabled = false;
+       
+    }
+    private void AcivateTray()
+    {
+        GetComponent<Renderer>().enabled = true;
+        GetComponent<Collider2D>().enabled = true;
+        
+
+    }
+
 }

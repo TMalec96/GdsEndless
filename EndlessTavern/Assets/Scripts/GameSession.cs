@@ -14,7 +14,19 @@ public class GameSession : MonoBehaviour
     public int BadOrders { get => badOrders; set => badOrders = value; }
     public int GoodOrders { get => goodOrders; set => goodOrders = value; }
     public int Score { get => score; set => score = value; }
-    public float Timer { get => timer; set => timer = value; }
+    public float Timer { get => timer;
+        set
+        {
+            if (value+timer > 30)
+            {
+                timer = 30;
+            }
+            else if(value+timer<30)
+            {
+                timer = value;
+            }
+        }
+    }
 
     // Start is called before the first frame update
     private void Awake()
@@ -24,7 +36,10 @@ public class GameSession : MonoBehaviour
 
     private void Update()
     {
-        timer -= Time.deltaTime;
+        if (timer > 0)
+            timer -= Time.deltaTime;
+        else
+            print("koniec gry");
     }
     private void SetUpSingleton()
     {
