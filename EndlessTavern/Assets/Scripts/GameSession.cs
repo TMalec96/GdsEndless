@@ -10,6 +10,7 @@ public class GameSession : MonoBehaviour
     private int badOrders = 0;
     [SerializeField]
     float timer = 15;
+    float timerOnStart;
 
     public int BadOrders { get => badOrders; set => badOrders = value; }
     public int GoodOrders { get => goodOrders; set => goodOrders = value; }
@@ -31,6 +32,7 @@ public class GameSession : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
+        timerOnStart = timer;
         SetUpSingleton();
     }
 
@@ -38,8 +40,13 @@ public class GameSession : MonoBehaviour
     {
         if (timer > 0)
             timer -= Time.deltaTime;
-        else
-            print("koniec gry");
+        else if ((int)timer == 0)
+        {
+            FindObjectOfType<LevelLoader>().LoadGameOverScene();
+            timer = -1;
+        }
+            
+     
     }
     private void SetUpSingleton()
     {
