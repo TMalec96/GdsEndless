@@ -49,5 +49,5 @@ MonoBehaviour:
   - {fileID: 2649732546379002813, guid: 1d57ac160280152448f3e3b3312df9a2, type: 3}
   - {fileID: 2649732546379002813, guid: 280fc0d7fd6ec9743bf043a068b131b2, type: 3}
   - {fileID: 2649732546379002813, guid: daea6b7d728e8b147b24e2981187a613, type: 3}
-  dishSpeed: 4
+  dishSpeed: 2
   dishSpawnInterval: 1

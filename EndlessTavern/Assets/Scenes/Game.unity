@@ -965,6 +965,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameSession
       objectReference: {fileID: 0}
+    - target: {fileID: 1127060383747335319, guid: e421cf5e5065ec54da13b74d0193061b,
+        type: 3}
+      propertyPath: maincCanvas
+      value: 
+      objectReference: {fileID: 1187317467}
     - target: {fileID: 1127060383747335318, guid: e421cf5e5065ec54da13b74d0193061b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1020,11 +1025,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1127060383747335319, guid: e421cf5e5065ec54da13b74d0193061b,
-        type: 3}
-      propertyPath: maincCanvas
-      value: 
-      objectReference: {fileID: 1187317467}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e421cf5e5065ec54da13b74d0193061b, type: 3}
 --- !u!1001 &2494338689791411902
@@ -1251,6 +1251,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 5631537835878636697, guid: adbdaec1c6fcf664c99247661f93fcef,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1549111875}
+    - target: {fileID: 5631537835878636697, guid: adbdaec1c6fcf664c99247661f93fcef,
+        type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 5631537835878636701, guid: adbdaec1c6fcf664c99247661f93fcef,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1356,16 +1366,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5631537835878636697, guid: adbdaec1c6fcf664c99247661f93fcef,
-        type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1549111875}
-    - target: {fileID: 5631537835878636697, guid: adbdaec1c6fcf664c99247661f93fcef,
-        type: 3}
-      propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
-      objectReference: {fileID: 0}
     - target: {fileID: 5631537837055965602, guid: adbdaec1c6fcf664c99247661f93fcef,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1454,6 +1454,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9160063980774985102, guid: 679a2b9124dc8e34db3230e53bee6102,
+        type: 3}
+      propertyPath: dishSpeed
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 679a2b9124dc8e34db3230e53bee6102, type: 3}
