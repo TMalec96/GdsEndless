@@ -4,26 +4,15 @@ using UnityEngine;
 
 public enum Dishes
 {
-    Chicken_leg,
-    Pie,
+    Fish,
+    Beer,
     Burger,
     Fries,
-    Pizza
+    Rum
 }
 public class Dish : MonoBehaviour
 {
     [SerializeField]
     public Dishes dishName;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
 }

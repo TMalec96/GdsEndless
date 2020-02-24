@@ -9,6 +9,12 @@ public class LevelLoader : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+    public void LoadMenuSceneFromPauseMenu()
+    {
+        FindObjectOfType<GameSession>().Pause();
+        SceneManager.LoadScene(0);
+
+    }
     public void LoadGameScene()
     {
         FindObjectOfType<GameSession>().ResetGame();

@@ -8,9 +8,13 @@ public class GameSession : MonoBehaviour
     private int score = 0;
     private int goodOrders = 0;
     private int badOrders = 0;
+    private bool paused = false;
     [SerializeField]
     float timer = 15;
     float timerOnStart;
+    [SerializeField]
+    Canvas maincCanvas;
+    
 
     public int BadOrders { get => badOrders; set => badOrders = value; }
     public int GoodOrders { get => goodOrders; set => goodOrders = value; }
@@ -28,6 +32,7 @@ public class GameSession : MonoBehaviour
             }
         }
     }
+    public bool Paused { get => paused; set => paused = value; }
 
     // Start is called before the first frame update
     private void Awake()
@@ -75,7 +80,36 @@ public class GameSession : MonoBehaviour
     }
     public void ResetGame()
     {
-        Destroy(gameObject);
+       Destroy(gameObject);
     }
+    public void Pause()
+    {
+
+        if (Time.timeScale == 0f)
+        {
+            Time.timeScale = 1f;
+            paused = false;
+        }
+        else
+        {
+            Time.timeScale = 0f;
+            paused = true;
+           
+        }
+    }
+    void OnGUI()
+    {
+        if (paused && maincCanvas!=null)
+        {
+            maincCanvas.transform.Find("BackToMenuButton").gameObject.SetActive(true);
+            
+        }
+        else if( !paused && maincCanvas !=null)
+        {
+            maincCanvas.transform.Find("BackToMenuButton").gameObject.SetActive(false);
+        }
+    }
+    
+
 
 }

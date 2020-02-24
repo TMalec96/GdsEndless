@@ -86,10 +86,15 @@ public class OrderDishSpawner : MonoBehaviour
 
     private void setTimerPoisition()
     {
+        if (timersPosition == 1280)
+        {
+            timersPosition = -640;
+        }
         timerInstance = Instantiate(timerPrefab, transform.position, Quaternion.identity);
         Vector2 timerPosition = timerInstance.transform.GetChild(0).transform.position;
         timerInstance.transform.GetChild(0).transform.position = new Vector2(timerPosition.x + timersPosition, timerPosition.y);
         timersPosition += 640;
+        
     }
 
     private void checkOrderCompletion()

@@ -22,13 +22,16 @@ public class DragItemScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        DraggedInstance = gameObject;
-        DraggedInstance.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        _startPosition = transform.position;
-        _zDistanceToCamera = Mathf.Abs(_startPosition.z - Camera.main.transform.position.z);
-        _offsetToMouse = _startPosition - Camera.main.ScreenToWorldPoint(
-            new Vector3(Input.mousePosition.x, Input.mousePosition.y, _zDistanceToCamera)
-        );
+        if (!FindObjectOfType<GameSession>().Paused)
+        {
+            DraggedInstance = gameObject;
+            DraggedInstance.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            _startPosition = transform.position;
+            _zDistanceToCamera = Mathf.Abs(_startPosition.z - Camera.main.transform.position.z);
+            _offsetToMouse = _startPosition - Camera.main.ScreenToWorldPoint(
+                new Vector3(Input.mousePosition.x, Input.mousePosition.y, _zDistanceToCamera)
+            );
+        }
     }
     /// <summary>
     /// Method called on drag start
@@ -36,14 +39,18 @@ public class DragItemScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     /// <param name="eventData"></param>
     public void OnDrag(PointerEventData eventData)
     {
-        isDragEnd = false;
-        DraggedInstance.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        if (Input.touchCount > 1)
-            return;
+        if (!FindObjectOfType<GameSession>().Paused)
+        {
+            isDragEnd = false;
+            DraggedInstance.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            if (Input.touchCount > 1)
+                return;
 
-        transform.position = Camera.main.ScreenToWorldPoint(
-            new Vector3(Input.mousePosition.x, Input.mousePosition.y, _zDistanceToCamera)
-            ) + _offsetToMouse;
+            transform.position = Camera.main.ScreenToWorldPoint(
+                new Vector3(Input.mousePosition.x, Input.mousePosition.y, _zDistanceToCamera)
+                ) + _offsetToMouse;
+        }
+        
     }
     /// <summary>
     /// Method called on drag end. 
