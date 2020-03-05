@@ -17,10 +17,15 @@ public class LevelLoader : MonoBehaviour
     }
     public void LoadGameScene()
     {
-        FindObjectOfType<GameSession>().ResetGame();
+        
         SceneManager.LoadScene(1);
       
 
+    }
+    public void ResetGame()
+    {
+        FindObjectOfType<GameSession>().ResetGame();
+        SceneManager.LoadScene(1);
     }
     public void LoadGameOverScene()
     {
