@@ -408,6 +408,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1016052309956735809, guid: d0dc269aa99ec814d8381f9bb1b8da80,
         type: 3}
+    - target: {fileID: 224133947725778084, guid: 0ef19e21233540a41930454eec26a391,
+        type: 3}
+      propertyPath: timeForOrderCompletion
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ef19e21233540a41930454eec26a391, type: 3}
 --- !u!114 &1053826321 stripped
@@ -512,6 +517,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1016052309956735809, guid: d0dc269aa99ec814d8381f9bb1b8da80,
         type: 3}
+    - target: {fileID: 224133947725778084, guid: 0ef19e21233540a41930454eec26a391,
+        type: 3}
+      propertyPath: timeForOrderCompletion
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ef19e21233540a41930454eec26a391, type: 3}
 --- !u!1 &1420808940
@@ -813,6 +823,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1016052309956735809, guid: d0dc269aa99ec814d8381f9bb1b8da80,
         type: 3}
+    - target: {fileID: 224133947725778084, guid: 0ef19e21233540a41930454eec26a391,
+        type: 3}
+      propertyPath: timeForOrderCompletion
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ef19e21233540a41930454eec26a391, type: 3}
 --- !u!1001 &1015984548382249355

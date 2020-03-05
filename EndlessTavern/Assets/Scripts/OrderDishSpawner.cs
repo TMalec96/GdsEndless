@@ -6,8 +6,17 @@ using UnityEngine;
 
 public class OrderDishSpawner : MonoBehaviour
 {
+    [Header("Score")]
     [SerializeField]
     int scoreValue = 100;
+    [SerializeField]
+    float maxTimeScoreMultiplayer = 1f;
+    [SerializeField]
+    float midTimeScoreMultiplayer = 0.75f;
+    [SerializeField]
+    float minTimeScoreMultiplayer = 0.5f;
+
+
     [SerializeField]
     List<Dish> dishes = new List<Dish>();
     [SerializeField]
@@ -15,7 +24,7 @@ public class OrderDishSpawner : MonoBehaviour
     [SerializeField]
     int timePenaltyForOrder = 4;
     [SerializeField]
-    int timeForOrderCompletion = 5;
+    int timeForOrderCompletion = 10;
     float currentTimeforOrderCompletion;
 
     [SerializeField]
@@ -30,18 +39,16 @@ public class OrderDishSpawner : MonoBehaviour
     private bool orderCompleted = false;
     private static int timersPosition = -640;
     //variable for testing 
-    private static int orderDelay = 5;
+    //private static int orderDelay = 5;
 
     bool duringClean = false;
 
 
     void Start()
     {
-        //block for testing
-        timeForOrderCompletion += orderDelay;
+        
         currentTimeforOrderCompletion = timeForOrderCompletion;
-        orderDelay += orderDelay;
-
+       
         setTimerPoisition();
         dishesPosition = setDishesPosition();
         allocateDishesPosition();
@@ -120,10 +127,12 @@ public class OrderDishSpawner : MonoBehaviour
     {
         orderCompleted = false;
         int randomDishIndex = 0;
+        List<Dish> excludingDishesList = dishes;
         for (int i = 0;i< dishesPosition.Count; i++)
         {
            randomDishIndex = UnityEngine.Random.Range(0, dishes.Count());
-           dishesInstances.Add(Instantiate(dishes[randomDishIndex].gameObject, dishesPosition[i],Quaternion.identity));
+           dishesInstances.Add(Instantiate(excludingDishesList[randomDishIndex].gameObject, dishesPosition[i],Quaternion.identity));
+           excludingDishesList.RemoveAt(randomDishIndex);
         }
     }
 
@@ -196,7 +205,19 @@ public class OrderDishSpawner : MonoBehaviour
     {
         duringClean = true;
         FindObjectOfType<GameSession>().AddToGoodOrders(1);
-        FindObjectOfType<GameSession>().AddToScore(scoreValue);
+        if (currentTimeforOrderCompletion >= timeForOrderCompletion * 0.66)
+        {
+            FindObjectOfType<GameSession>().AddToScore(Convert.ToInt32(scoreValue * maxTimeScoreMultiplayer));
+        }
+        else if (currentTimeforOrderCompletion < timeForOrderCompletion * 0.66 && currentTimeforOrderCompletion > timeForOrderCompletion * 0.33)
+        {
+            FindObjectOfType<GameSession>().AddToScore(Convert.ToInt32(scoreValue * midTimeScoreMultiplayer));
+        }
+        else 
+        {
+            FindObjectOfType<GameSession>().AddToScore(Convert.ToInt32(scoreValue * minTimeScoreMultiplayer));
+        }
+
         DeactivateTray();
         
         foreach (GameObject objectToDestroy in CompletedDishes)
