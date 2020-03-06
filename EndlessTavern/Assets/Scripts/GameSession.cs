@@ -73,6 +73,15 @@ public class GameSession : MonoBehaviour
     public void AddToGoodOrders(int value)
     {
         goodOrders += value;
+        if (goodOrders == 5)
+        {
+            FindObjectOfType<TrayActivator>().SetActiveTraysNumber(2);
+        }
+        else if (goodOrders == 10)
+        {
+            FindObjectOfType<TrayActivator>().SetActiveTraysNumber(3);
+        }
+        
     }
     public void AddToBadOrders(int value)
     {

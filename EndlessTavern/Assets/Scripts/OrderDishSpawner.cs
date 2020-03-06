@@ -15,7 +15,12 @@ public class OrderDishSpawner : MonoBehaviour
     float midTimeScoreMultiplayer = 0.75f;
     [SerializeField]
     float minTimeScoreMultiplayer = 0.5f;
-
+    [Header("Dishes Count")]
+    [SerializeField]
+    int maxAmountOfGoodOrdersForOneDish = 5;
+    [SerializeField]
+    int maxAmountOfGoodOrdersForTwoDishes = 10;
+    
 
     [SerializeField]
     List<Dish> dishes = new List<Dish>();
@@ -30,14 +35,17 @@ public class OrderDishSpawner : MonoBehaviour
     [SerializeField]
     GameObject timerPrefab;
     GameObject timerInstance;
-    
+
 
     private List<GameObject> dishesInstances = new List<GameObject>();
     private List<GameObject> CompletedDishes = new List<GameObject>();
     private List<Vector2> dishesPosition;
+    private enum TrayPositions { Left,Right,Middle };
+    [SerializeField]
+    TrayPositions trayPosition = TrayPositions.Left;
 
     private bool orderCompleted = false;
-    private static int timersPosition = -640;
+    private int timerPositionX = -640;
     //variable for testing 
     //private static int orderDelay = 5;
 
@@ -93,14 +101,23 @@ public class OrderDishSpawner : MonoBehaviour
 
     private void setTimerPoisition()
     {
-        if (timersPosition == 1280)
+        switch(trayPosition)
         {
-            timersPosition = -640;
+            case TrayPositions.Left:
+                timerPositionX = -560;
+                break;
+            case TrayPositions.Middle:
+                timerPositionX = 0;
+                break;
+            case TrayPositions.Right:
+                timerPositionX = 560;
+                break;
         }
+        
         timerInstance = Instantiate(timerPrefab, transform.position, Quaternion.identity);
         Vector2 timerPosition = timerInstance.transform.GetChild(0).transform.position;
-        timerInstance.transform.GetChild(0).transform.position = new Vector2(timerPosition.x + timersPosition, timerPosition.y);
-        timersPosition += 640;
+        timerInstance.transform.GetChild(0).transform.position = new Vector2(timerPosition.x + timerPositionX, timerPosition.y-300);
+       
         
     }
 
@@ -127,13 +144,29 @@ public class OrderDishSpawner : MonoBehaviour
     {
         orderCompleted = false;
         int randomDishIndex = 0;
-        List<Dish> excludingDishesList = dishes;
-        for (int i = 0;i< dishesPosition.Count; i++)
+        int numberOfdishesToAllocate = 0;
+        List<Dish> excludingDishesList = new List<Dish>();
+        excludingDishesList.AddRange(dishes);
+        int goodOrdersForNow = FindObjectOfType<GameSession>().GoodOrders;
+        if (goodOrdersForNow < maxAmountOfGoodOrdersForOneDish)
         {
-           randomDishIndex = UnityEngine.Random.Range(0, dishes.Count());
+            numberOfdishesToAllocate = 1;
+        }
+        else if(goodOrdersForNow < maxAmountOfGoodOrdersForTwoDishes)
+        {
+            numberOfdishesToAllocate = 2;
+        }
+        else
+        {
+            numberOfdishesToAllocate = 3;
+        }
+        for (int i = 0;i< numberOfdishesToAllocate; i++)
+        {
+           randomDishIndex = UnityEngine.Random.Range(0, excludingDishesList.Count());
            dishesInstances.Add(Instantiate(excludingDishesList[randomDishIndex].gameObject, dishesPosition[i],Quaternion.identity));
            excludingDishesList.RemoveAt(randomDishIndex);
         }
+       
     }
 
     private void OnTriggerStay2D(Collider2D collision)
