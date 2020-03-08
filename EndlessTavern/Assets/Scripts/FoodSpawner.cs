@@ -10,6 +10,7 @@ public class FoodSpawner : MonoBehaviour
     float dishSpeed = 6;
     [SerializeField]
     float dishSpawnInterval = 1;
+    private int lastIndex = 0;
     void Start()
     {
         StartCoroutine(dishServings());
@@ -22,9 +23,15 @@ public class FoodSpawner : MonoBehaviour
     }
     private void spawnDish()
     {
-        GameObject objectToSpawn = Instantiate(dishes[Random.Range(0, dishes.Count)]) as GameObject;
+        int indexOfDishToSpawn = 0;
+        do
+        {
+            indexOfDishToSpawn = Random.Range(0, dishes.Count);
+        } while (indexOfDishToSpawn == lastIndex);
+        GameObject objectToSpawn = Instantiate(dishes[indexOfDishToSpawn]) as GameObject;
         objectToSpawn.transform.position = this.gameObject.transform.position;
         objectToSpawn.GetComponent<Rigidbody2D>().velocity = new Vector2(-dishSpeed, 0);
+        lastIndex = indexOfDishToSpawn;
     }
     IEnumerator dishServings()
     {

@@ -19,7 +19,7 @@ public class OrderDishSpawner : MonoBehaviour
     [SerializeField]
     int maxAmountOfGoodOrdersForOneDish = 5;
     [SerializeField]
-    int maxAmountOfGoodOrdersForTwoDishes = 10;
+    int maxAmountOfGoodOrdersForTwoDishes = 20;
     
 
     [SerializeField]
@@ -150,11 +150,11 @@ public class OrderDishSpawner : MonoBehaviour
         int goodOrdersForNow = FindObjectOfType<GameSession>().GoodOrders;
         if (goodOrdersForNow < maxAmountOfGoodOrdersForOneDish)
         {
-            numberOfdishesToAllocate = 1;
+            numberOfdishesToAllocate = UnityEngine.Random.Range(1,2);
         }
         else if(goodOrdersForNow < maxAmountOfGoodOrdersForTwoDishes)
         {
-            numberOfdishesToAllocate = 2;
+            numberOfdishesToAllocate = UnityEngine.Random.Range(1, 3);
         }
         else
         {
@@ -202,7 +202,8 @@ public class OrderDishSpawner : MonoBehaviour
         //dish dismatched
         else
         {
-            FindObjectOfType<GameSession>().Timer -= timePenaltyForOrder;
+            
+            FindObjectOfType<GameSession>().substractTime(timePenaltyForOrder);
             StartCoroutine(ClearTrayFull(2));
         }
         

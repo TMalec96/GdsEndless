@@ -40,6 +40,10 @@ public class GameSession : MonoBehaviour
         timerOnStart = timer;
         SetUpSingleton();
     }
+    public void substractTime( int timeToSubstract)
+    {
+        timer -= timeToSubstract;
+    }
 
     private void Update()
     {
@@ -73,14 +77,15 @@ public class GameSession : MonoBehaviour
     public void AddToGoodOrders(int value)
     {
         goodOrders += value;
-        if (goodOrders == 5)
-        {
-            FindObjectOfType<TrayActivator>().SetActiveTraysNumber(2);
-        }
-        else if (goodOrders == 10)
-        {
-            FindObjectOfType<TrayActivator>().SetActiveTraysNumber(3);
-        }
+        //TRAY ACTIVATOR
+        //if (goodOrders == 5)
+        //{
+        //    FindObjectOfType<TrayActivator>().SetActiveTraysNumber(2);
+        //}
+        //else if (goodOrders == 10)
+        //{
+        //    FindObjectOfType<TrayActivator>().SetActiveTraysNumber(3);
+        //}
         
     }
     public void AddToBadOrders(int value)
@@ -93,14 +98,17 @@ public class GameSession : MonoBehaviour
     }
     public void Pause()
     {
+        
 
         if (Time.timeScale == 0f)
         {
+            print("unpause");
             Time.timeScale = 1f;
             paused = false;
         }
         else
         {
+            print("pause");
             Time.timeScale = 0f;
             paused = true;
            

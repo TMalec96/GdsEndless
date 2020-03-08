@@ -9,7 +9,7 @@ public class TrayActivator : MonoBehaviour
     void Start()
     {
         GetChilds();
-        trays[0].gameObject.SetActive(true);
+        StartCoroutine(SetActiveTraysNumber(3));
 
     }
     private void GetChilds()
@@ -19,11 +19,13 @@ public class TrayActivator : MonoBehaviour
             trays.Add(child.GetComponent<OrderDishSpawner>());
         }
     }
-    public void SetActiveTraysNumber(int number)
+    public IEnumerator SetActiveTraysNumber(int number)
     {
         for (int i =0; i < number; i++)
         {
+            yield return new WaitForSeconds(2);
             trays[i].gameObject.SetActive(true);
+            
         }
     }
    
