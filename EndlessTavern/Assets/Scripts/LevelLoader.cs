@@ -22,6 +22,21 @@ public class LevelLoader : MonoBehaviour
       
 
     }
+    public void LoadAchievmentsScene()
+    {
+
+        SceneManager.LoadScene(3);
+
+
+    }
+    public void LoadATutorialScene()
+    {
+
+        SceneManager.LoadScene(4);
+
+
+    }
+
     public void ResetGame()
     {
         FindObjectOfType<GameSession>().ResetGame();

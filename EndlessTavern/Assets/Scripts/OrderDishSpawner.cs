@@ -104,13 +104,13 @@ public class OrderDishSpawner : MonoBehaviour
         switch(trayPosition)
         {
             case TrayPositions.Left:
-                timerPositionX = -560;
+                timerPositionX = -360;
                 break;
             case TrayPositions.Middle:
                 timerPositionX = 0;
                 break;
             case TrayPositions.Right:
-                timerPositionX = 560;
+                timerPositionX = 360;
                 break;
         }
         
