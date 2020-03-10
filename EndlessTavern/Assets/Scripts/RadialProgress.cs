@@ -19,7 +19,7 @@ public class RadialProgress : MonoBehaviour
     // Update is called once per frame
     void Start()
     {
-        LoadingBar.color = new Color(0, 0.5F, 0,1);
+        
         maxTime = timer;
         oneThirdMaxTime = maxTime * 0.33;
         twoThirdMaxTime = maxTime * 0.66;
@@ -36,6 +36,10 @@ public class RadialProgress : MonoBehaviour
         else if (currentValue <= twoThirdMaxTime)
         {
             LoadingBar.color = Color.yellow;
+        }
+        else
+        {
+            LoadingBar.color = new Color(0, 0.5F, 0, 1);
         }
        
             LoadingBar.fillAmount = currentValue / maxTime;

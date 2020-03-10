@@ -33,8 +33,8 @@ public class OrderDishSpawner : MonoBehaviour
     float currentTimeforOrderCompletion;
 
     [SerializeField]
-    GameObject timerPrefab;
-    GameObject timerInstance;
+    GameObject timerPrefab = null;
+    GameObject timerInstance =null;
 
 
     private List<GameObject> dishesInstances = new List<GameObject>();
@@ -81,6 +81,7 @@ public class OrderDishSpawner : MonoBehaviour
         if (currentTimeforOrderCompletion < 0 && !duringClean)
         {
             timerInstance.transform.GetChild(0).GetComponent<RadialProgress>().Stop();
+            FindObjectOfType<GameSession>().substractTime(timePenaltyForOrder);
             StartCoroutine(ClearTrayFull(2));
 
 
@@ -104,13 +105,13 @@ public class OrderDishSpawner : MonoBehaviour
         switch(trayPosition)
         {
             case TrayPositions.Left:
-                timerPositionX = -360;
+                timerPositionX = -560;
                 break;
             case TrayPositions.Middle:
                 timerPositionX = 0;
                 break;
             case TrayPositions.Right:
-                timerPositionX = 360;
+                timerPositionX = 560;
                 break;
         }
         

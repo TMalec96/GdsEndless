@@ -13,7 +13,7 @@ public class GameSession : MonoBehaviour
     float timer = 15;
     float timerOnStart;
     [SerializeField]
-    Canvas maincCanvas;
+    Canvas maincCanvas = null;
     
 
     public int BadOrders { get => badOrders; set => badOrders = value; }

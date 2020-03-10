@@ -5,7 +5,7 @@ using UnityEngine;
 public class TutorialHandler : MonoBehaviour
 {
     [SerializeField]
-    Canvas tutorialPrompt;
+    Canvas tutorialPrompt = null;
 
     
     public void CheckForTutorialCompletion()
