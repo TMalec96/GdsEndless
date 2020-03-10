@@ -8,6 +8,11 @@ public class LevelLoader : MonoBehaviour
    public void LoadMenuScene()
     {
         SceneManager.LoadScene(0);
+        FindObjectOfType<GameSession>().ResetGame();
+    }
+    public void LoadMenuSceneNoReset()
+    {
+        SceneManager.LoadScene(0);
     }
     public void LoadMenuSceneFromPauseMenu()
     {
@@ -33,6 +38,13 @@ public class LevelLoader : MonoBehaviour
     {
 
         SceneManager.LoadScene(4);
+
+
+    }
+    public void LoadHiscoreScene()
+    {
+
+        SceneManager.LoadScene(5);
 
 
     }

@@ -9,6 +9,7 @@ public class GameSession : MonoBehaviour
     private int goodOrders = 0;
     private int badOrders = 0;
     private bool paused = false;
+    private bool gameFinished = false;
     [SerializeField]
     float timer = 15;
     float timerOnStart;
@@ -26,9 +27,10 @@ public class GameSession : MonoBehaviour
             {
                 timer = 30;
             }
-            else if(value+timer<30)
+            else
             {
                 timer = value;
+            
             }
         }
     }
@@ -49,10 +51,11 @@ public class GameSession : MonoBehaviour
     {
         if (timer > 0)
             timer -= Time.deltaTime;
-        else if ((int)timer == 0)
+        else if (!gameFinished && (int)timer <= 0)
         {
+            gameFinished = true;
             FindObjectOfType<LevelLoader>().LoadGameOverScene();
-            timer = -1;
+            
         }
             
      
