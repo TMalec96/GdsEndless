@@ -59,6 +59,18 @@ public class GameSession : MonoBehaviour
         timer -= timeToSubstract;
     }
 
+    public void GrantBonusPointsForGoodOrdersInRow()
+    {
+        if(goodOrdersCombo%5 == 0)
+        {
+            score += 500;
+        }
+        if (goodOrdersCombo % 10 == 0)
+        {
+            score += 2500;
+        }
+
+    }
     private void Update()
     {
         globalTime += Time.deltaTime;
@@ -97,6 +109,7 @@ public class GameSession : MonoBehaviour
         goodOrdersCombo += 1;
         goodOrders += value;
         checkForOrdersAchievementCompletion();
+        GrantBonusPointsForGoodOrdersInRow();
 
 
     }
