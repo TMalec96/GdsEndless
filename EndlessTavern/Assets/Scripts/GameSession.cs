@@ -15,6 +15,18 @@ public class GameSession : MonoBehaviour
     float timerOnStart;
     [SerializeField]
     Canvas maincCanvas = null;
+    [SerializeField]
+    Achievement scoreAchievement;
+    [SerializeField]
+    Achievement timeAchievement;
+    [SerializeField]
+    Achievement ordersAchievement;
+
+
+
+    private float globalTime = 0;
+    private int goodOrdersCombo = 0;
+    
     
 
     public int BadOrders { get => badOrders; set => badOrders = value; }
@@ -49,6 +61,8 @@ public class GameSession : MonoBehaviour
 
     private void Update()
     {
+        globalTime += Time.deltaTime;
+        checkForTimeAchievementCompletion();
         if (timer > 0)
             timer -= Time.deltaTime;
         else if (!gameFinished && (int)timer <= 0)
@@ -76,23 +90,19 @@ public class GameSession : MonoBehaviour
     public void AddToScore(int value)
     {
         score += value;
+        checkForScoreAchievementCompletion();
     }
     public void AddToGoodOrders(int value)
     {
+        goodOrdersCombo += 1;
         goodOrders += value;
-        //TRAY ACTIVATOR
-        //if (goodOrders == 5)
-        //{
-        //    FindObjectOfType<TrayActivator>().SetActiveTraysNumber(2);
-        //}
-        //else if (goodOrders == 10)
-        //{
-        //    FindObjectOfType<TrayActivator>().SetActiveTraysNumber(3);
-        //}
-        
+        checkForOrdersAchievementCompletion();
+
+
     }
     public void AddToBadOrders(int value)
     {
+        goodOrdersCombo = 0;
         badOrders += value;
     }
     public void ResetGame()
@@ -129,7 +139,30 @@ public class GameSession : MonoBehaviour
             maincCanvas.transform.Find("BackToMenuButton").gameObject.SetActive(false);
         }
     }
-    
+    public void checkForScoreAchievementCompletion()
+    {
+        if (!scoreAchievement.IsComplete && score >= scoreAchievement.Score)
+        {
+            
+            scoreAchievement.IsComplete = true;
+        }
+    }
+    public void checkForOrdersAchievementCompletion()
+    {
+        if(!ordersAchievement.IsComplete && goodOrdersCombo == ordersAchievement.OrdersCombo)
+        {
+            ordersAchievement.IsComplete = true;
+        }
+
+    }
+    public void checkForTimeAchievementCompletion()
+    {
+        if(!timeAchievement.IsComplete && globalTime >= timeAchievement.Time)
+        {
+            timeAchievement.IsComplete = true;
+        }
+    }
+
 
 
 }

@@ -43,7 +43,10 @@ public class OrderDishSpawner : MonoBehaviour
     private enum TrayPositions { Left,Right,Middle };
     [SerializeField]
     TrayPositions trayPosition = TrayPositions.Left;
-
+    [Header("Customers")]
+    [SerializeField]
+    List<GameObject> customers =  new List<GameObject>();
+    private GameObject customer = null;
     private bool orderCompleted = false;
     private int timerPositionX = -640;
     //variable for testing 
@@ -56,7 +59,7 @@ public class OrderDishSpawner : MonoBehaviour
     {
         
         currentTimeforOrderCompletion = timeForOrderCompletion;
-       
+        SpawnRandomCustomer();
         setTimerPoisition();
         dishesPosition = setDishesPosition();
         allocateDishesPosition();
@@ -69,6 +72,11 @@ public class OrderDishSpawner : MonoBehaviour
         checkOrderCompletion();
         checkForOrderTimeOut();
 
+    }
+    private void SpawnRandomCustomer()
+    {
+        int randomIndex = UnityEngine.Random.Range(0, customers.Count());
+        customer = Instantiate(customers[randomIndex], transform.position, Quaternion.identity);
     }
 
     private void countTime()
@@ -269,6 +277,7 @@ public class OrderDishSpawner : MonoBehaviour
 
     private void DeactivateTray()
     {
+        customer.SetActive(false);
         GetComponent<Renderer>().enabled = false;
         GetComponent<Collider2D>().enabled = false;
        
@@ -277,6 +286,8 @@ public class OrderDishSpawner : MonoBehaviour
     {
         GetComponent<Renderer>().enabled = true;
         GetComponent<Collider2D>().enabled = true;
+        SpawnRandomCustomer();
+        customer.SetActive(true);
         
 
     }

@@ -83,6 +83,8 @@ MonoBehaviour:
   maxTimeScoreMultiplayer: 1
   midTimeScoreMultiplayer: 0.75
   minTimeScoreMultiplayer: 0.5
+  maxAmountOfGoodOrdersForOneDish: 5
+  maxAmountOfGoodOrdersForTwoDishes: 20
   dishes:
   - {fileID: 2664888216739570421, guid: ecc3764d34299b24ca124e8e2a35ed18, type: 3}
   - {fileID: 2649732546379002803, guid: 589e3f4a689c3d04abce96581919112f, type: 3}
@@ -93,6 +95,16 @@ MonoBehaviour:
   timePenaltyForOrder: 4
   timeForOrderCompletion: 5
   timerPrefab: {fileID: 0}
+  trayPosition: 0
+  customers:
+  - {fileID: 2744799285428399870, guid: 231dc150e8eb755418a079b02b04c93b, type: 3}
+  - {fileID: 2744799285428399870, guid: 1088d21789379dd458ba38d73582d84d, type: 3}
+  - {fileID: 2744799285428399870, guid: 9d8266900279ec544a57bdeb7d8d27f5, type: 3}
+  - {fileID: 2744799285428399870, guid: 19bb3842df8489a47b156e422328e7d5, type: 3}
+  - {fileID: 2744799285428399870, guid: 8e31ae8465694424681d77de9f6ab9ef, type: 3}
+  - {fileID: 2744799285428399870, guid: 8625e0896fbc68b4d9d62f0946ca0f55, type: 3}
+  - {fileID: 2744799285428399870, guid: d91f05d20880aff4db69869e296ff3bc, type: 3}
+  - {fileID: 2744799285428399870, guid: ea780ccef03ab9a4489f87fb0f7b9dfd, type: 3}
 --- !u!61 &224133947725778087
 BoxCollider2D:
   m_ObjectHideFlags: 0
