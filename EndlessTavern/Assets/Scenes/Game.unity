@@ -475,6 +475,16 @@ PrefabInstance:
       propertyPath: trayPosition
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 224133947725778084, guid: 0ef19e21233540a41930454eec26a391,
+        type: 3}
+      propertyPath: timeBonusForCompleteOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 224133947725778084, guid: 0ef19e21233540a41930454eec26a391,
+        type: 3}
+      propertyPath: timePenaltyForOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 224133947178187391, guid: 0ef19e21233540a41930454eec26a391,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -742,6 +752,16 @@ PrefabInstance:
         type: 3}
       propertyPath: trayPosition
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 224133947725778084, guid: 0ef19e21233540a41930454eec26a391,
+        type: 3}
+      propertyPath: timeBonusForCompleteOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 224133947725778084, guid: 0ef19e21233540a41930454eec26a391,
+        type: 3}
+      propertyPath: timePenaltyForOrder
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 224133947178187391, guid: 0ef19e21233540a41930454eec26a391,
         type: 3}
@@ -1079,6 +1099,16 @@ PrefabInstance:
       propertyPath: timeForOrderCompletion
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 224133947725778084, guid: 0ef19e21233540a41930454eec26a391,
+        type: 3}
+      propertyPath: timeBonusForCompleteOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 224133947725778084, guid: 0ef19e21233540a41930454eec26a391,
+        type: 3}
+      propertyPath: timePenaltyForOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 224133947178187391, guid: 0ef19e21233540a41930454eec26a391,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1264,7 +1294,7 @@ PrefabInstance:
     - target: {fileID: 1127060383747335319, guid: e421cf5e5065ec54da13b74d0193061b,
         type: 3}
       propertyPath: timer
-      value: 30
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 1127060383747335318, guid: e421cf5e5065ec54da13b74d0193061b,
         type: 3}

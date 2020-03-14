@@ -25,9 +25,9 @@ public class OrderDishSpawner : MonoBehaviour
     [SerializeField]
     List<Dish> dishes = new List<Dish>();
     [SerializeField]
-    int timeBonusForCompleteOrder = 4;
+    int timeBonusForCompleteOrder = 3;
     [SerializeField]
-    int timePenaltyForOrder = 4;
+    int timePenaltyForOrder = 3;
     [SerializeField]
     int timeForOrderCompletion = 10;
     float currentTimeforOrderCompletion;

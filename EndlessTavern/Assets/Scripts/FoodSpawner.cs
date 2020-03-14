@@ -7,7 +7,7 @@ public class FoodSpawner : MonoBehaviour
     [SerializeField]
     List<GameObject> dishes = new List<GameObject>();
     [SerializeField]
-    float dishSpeed = 6;
+    float dishSpeed = 2;
     [SerializeField]
     float dishSpawnInterval = 1;
     private int lastIndex = 0;
@@ -40,5 +40,9 @@ public class FoodSpawner : MonoBehaviour
             yield return new WaitForSeconds(dishSpawnInterval);
             spawnDish();
         }
+    }
+    public void setDishSpeed(float speed)
+    {
+        dishSpeed = speed;
     }
 }

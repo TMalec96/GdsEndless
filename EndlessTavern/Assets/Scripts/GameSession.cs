@@ -11,7 +11,7 @@ public class GameSession : MonoBehaviour
     private bool paused = false;
     private bool gameFinished = false;
     [SerializeField]
-    float timer = 15;
+    float timer = 17;
     float timerOnStart;
     [SerializeField]
     Achievement scoreAchievement;
@@ -20,6 +20,13 @@ public class GameSession : MonoBehaviour
     [SerializeField]
     Achievement ordersAchievement;
 
+    [Header("Speed Progression")]
+    [SerializeField]
+    int firstInterwal = 10;
+    [SerializeField]
+    int secondInterwal = 20;
+    [SerializeField]
+    int thirdInterwal = 30;
 
 
     private float globalTime = 0;
@@ -108,9 +115,28 @@ public class GameSession : MonoBehaviour
         goodOrders += value;
         checkForOrdersAchievementCompletion();
         GrantBonusPointsForGoodOrdersInRow();
+        checkForDishSpeedProgression();
 
 
     }
+
+    private void checkForDishSpeedProgression()
+    {
+        if(goodOrders == firstInterwal)
+        {
+            FindObjectOfType<FoodSpawner>().setDishSpeed(2);
+        }
+        else if (goodOrders == secondInterwal)
+        {
+            FindObjectOfType<FoodSpawner>().setDishSpeed(3);
+        }
+        else if (goodOrders == thirdInterwal)
+        {
+            FindObjectOfType<FoodSpawner>().setDishSpeed(4);
+        }
+
+    }
+
     public void AddToBadOrders(int value)
     {
         goodOrdersCombo = 0;

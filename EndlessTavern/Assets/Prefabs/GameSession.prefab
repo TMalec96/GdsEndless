@@ -44,7 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 15
-  maincCanvas: {fileID: 0}
   scoreAchievement: {fileID: 4155521900657304573, guid: b5b75ad2eaaeb9d41944c313105fd749,
     type: 3}
   timeAchievement: {fileID: 3505360645150219402, guid: 2fb368e7ffbbd9847b1337a7c40ed8c8,
