@@ -14,8 +14,6 @@ public class GameSession : MonoBehaviour
     float timer = 15;
     float timerOnStart;
     [SerializeField]
-    Canvas maincCanvas = null;
-    [SerializeField]
     Achievement scoreAchievement;
     [SerializeField]
     Achievement timeAchievement;
@@ -46,7 +44,7 @@ public class GameSession : MonoBehaviour
             }
         }
     }
-    public bool Paused { get => paused; set => paused = value; }
+    
 
     // Start is called before the first frame update
     private void Awake()
@@ -122,36 +120,7 @@ public class GameSession : MonoBehaviour
     {
        Destroy(gameObject);
     }
-    public void Pause()
-    {
-        
-
-        if (Time.timeScale == 0f)
-        {
-            print("unpause");
-            Time.timeScale = 1f;
-            paused = false;
-        }
-        else
-        {
-            print("pause");
-            Time.timeScale = 0f;
-            paused = true;
-           
-        }
-    }
-    void OnGUI()
-    {
-        if (paused && maincCanvas!=null)
-        {
-            maincCanvas.transform.Find("BackToMenuButton").gameObject.SetActive(true);
-            
-        }
-        else if( !paused && maincCanvas !=null)
-        {
-            maincCanvas.transform.Find("BackToMenuButton").gameObject.SetActive(false);
-        }
-    }
+    
     public void checkForScoreAchievementCompletion()
     {
         if (!scoreAchievement.IsComplete && score >= scoreAchievement.Score)

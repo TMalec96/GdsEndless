@@ -6,6 +6,7 @@ public class AchievementTable : MonoBehaviour
 {
     [SerializeField]
     List<Achievement> achievements = new List<Achievement>();
+    private int xPostion = -5;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,8 +17,9 @@ public class AchievementTable : MonoBehaviour
             {
                 //wyświetla zrobione achiv
                 print(achievement.name);
-                Instantiate(achievement, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+                Instantiate(achievement, new Vector2(0 + xPostion, transform.position.y), Quaternion.identity);
             }
+            xPostion += 5;
         } 
     }
 

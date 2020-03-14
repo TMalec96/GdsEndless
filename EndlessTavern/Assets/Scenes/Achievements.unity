@@ -195,6 +195,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.25
       objectReference: {fileID: 0}
+    - target: {fileID: 1128736571, guid: 571af0585ac82ed4abe9a0da363d4377, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 571af0585ac82ed4abe9a0da363d4377, type: 3}
 --- !u!1 &137048105
@@ -439,11 +443,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2811463120318672094, guid: d998a09c696d58048b1a7ad7f4fc51cf,
-        type: 3}
-      propertyPath: m_Name
-      value: LevelLoader
-      objectReference: {fileID: 0}
     - target: {fileID: 8544031861777941121, guid: d998a09c696d58048b1a7ad7f4fc51cf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -498,6 +497,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2811463120318672094, guid: d998a09c696d58048b1a7ad7f4fc51cf,
+        type: 3}
+      propertyPath: m_Name
+      value: LevelLoader
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d998a09c696d58048b1a7ad7f4fc51cf, type: 3}

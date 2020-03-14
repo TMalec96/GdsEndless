@@ -22,7 +22,7 @@ public class DragItemScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (!FindObjectOfType<GameSession>().Paused)
+        if (!FindObjectOfType<PauseMenu>().Paused)
         {
             DraggedInstance = gameObject;
             DraggedInstance.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
@@ -39,7 +39,7 @@ public class DragItemScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     /// <param name="eventData"></param>
     public void OnDrag(PointerEventData eventData)
     {
-        if (!FindObjectOfType<GameSession>().Paused)
+        if (!FindObjectOfType<PauseMenu>().Paused)
         {
             isDragEnd = false;
             DraggedInstance.GetComponent<Rigidbody2D>().velocity = Vector2.zero;

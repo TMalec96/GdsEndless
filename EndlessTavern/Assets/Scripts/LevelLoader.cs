@@ -16,7 +16,7 @@ public class LevelLoader : MonoBehaviour
     }
     public void LoadMenuSceneFromPauseMenu()
     {
-        FindObjectOfType<GameSession>().Pause();
+        FindObjectOfType<PauseMenu>().Pause();
         SceneManager.LoadScene(0);
 
     }

@@ -125,7 +125,7 @@ public class OrderDishSpawner : MonoBehaviour
         
         timerInstance = Instantiate(timerPrefab, transform.position, Quaternion.identity);
         Vector2 timerPosition = timerInstance.transform.GetChild(0).transform.position;
-        timerInstance.transform.GetChild(0).transform.position = new Vector2(timerPosition.x + timerPositionX, timerPosition.y-300);
+        timerInstance.transform.GetChild(0).transform.position = new Vector2(timerPosition.x + timerPositionX, timerPosition.y);
        
         
     }
@@ -214,6 +214,7 @@ public class OrderDishSpawner : MonoBehaviour
             
             FindObjectOfType<GameSession>().substractTime(timePenaltyForOrder);
             StartCoroutine(ClearTrayFull(2));
+            timerInstance.SetActive(false);
         }
         
         
@@ -284,6 +285,7 @@ public class OrderDishSpawner : MonoBehaviour
     }
     private void AcivateTray()
     {
+        timerInstance.SetActive(true);
         GetComponent<Renderer>().enabled = true;
         GetComponent<Collider2D>().enabled = true;
         SpawnRandomCustomer();
