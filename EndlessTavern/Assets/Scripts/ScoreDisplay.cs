@@ -20,9 +20,9 @@ public class ScoreDisplay : MonoBehaviour
 
     private void mapChildsTexts()
     {
-        scoreText = transform.GetChild(0).gameObject.GetComponent<Text>();
-        goodOrdersText = transform.GetChild(2).gameObject.GetComponent<Text>();
-        badOrdersText = transform.GetChild(1).gameObject.GetComponent<Text>();
+        scoreText = transform.Find("Score").gameObject.GetComponent<Text>();
+        goodOrdersText = transform.Find("GoodOrdersScore").gameObject.GetComponent<Text>();
+        badOrdersText = transform.Find("BadOrdersScore").gameObject.GetComponent<Text>();
     }
 
     // Update is called once per frame
