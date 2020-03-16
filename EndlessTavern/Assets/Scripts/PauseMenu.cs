@@ -36,6 +36,7 @@ public class PauseMenu : MonoBehaviour
         else if (!paused && maincCanvas != null)
         {
             maincCanvas.transform.Find("PauseMenuImage").gameObject.SetActive(false);
+            maincCanvas.transform.Find("SettingsMenuImage").gameObject.SetActive(false);
         }
     }
 }

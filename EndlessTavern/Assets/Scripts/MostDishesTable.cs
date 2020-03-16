@@ -11,6 +11,7 @@ public class MostDishesTable : MonoBehaviour
     private List<Transform> mostDishesEntryTransformList;
     private List<MostDishesEntry> mostDishesEntryList;
     private int biggestDishesNumber;
+    private List<Transform> recordsInstances = new List<Transform>();
 
     public int BiggestDishesNumber { get => biggestDishesNumber; set => biggestDishesNumber = value; }
 
@@ -54,6 +55,7 @@ public class MostDishesTable : MonoBehaviour
         entryTemplate.gameObject.SetActive(false);
         float templateHeight = 30f;
         Transform entryTransform = Instantiate(entryTemplate, container);
+        recordsInstances.Add(entryTransform);
         RectTransform entryRectTransform = entryTransform.GetComponent<RectTransform>();
         entryRectTransform.anchoredPosition = new Vector2(0, -templateHeight * transformList.Count);
         entryTransform.gameObject.SetActive(true);
@@ -66,6 +68,10 @@ public class MostDishesTable : MonoBehaviour
 
     public void AddMostDishesEntry(int score, string name)
     {
+        foreach (Transform recordsInstance in recordsInstances)
+        {
+            Destroy(recordsInstance.gameObject);
+        }
         //Create HighscoreEntry
         MostDishesEntry mostDishesEntry = new MostDishesEntry { score = score, name = name };
         //Load saved mostdishes
@@ -86,7 +92,11 @@ public class MostDishesTable : MonoBehaviour
     }
     public void ResetMostDishesTable()
     {
-        MostDishesEntry mostDishesEntry = new MostDishesEntry { score = 0, name = "Player" };
+        foreach(Transform recordsInstance in recordsInstances)
+        {          
+            Destroy(recordsInstance.gameObject);
+        }
+        MostDishesEntry mostDishesEntry = new MostDishesEntry { score = 0, name = "" };
         MostDishes mostDishes = new MostDishes();
         mostDishes.mostDishesEntryList.Add(mostDishesEntry);
         //Save updated MostDishes

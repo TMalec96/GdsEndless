@@ -43,12 +43,24 @@ public class Achievement : MonoBehaviour
     public int Score { get => score; set => score = value; }
     public int OrdersCombo { get => ordersCombo; set => ordersCombo = value; }
     public int Complete { get => complete; set => complete = value; }
+    public string AchievementName { get => achievementName; set => achievementName = value; }
 
     public void ResetAchievementsProgress()
     {
         PlayerPrefs.SetInt("ScoreAchievement", 0);
         PlayerPrefs.SetInt("TimeAchievement", 0);
         PlayerPrefs.SetInt("OrdersComboAchievement", 0);
+    }
+    public void UnlockAchievementsProgress()
+    {
+        PlayerPrefs.SetInt("ScoreAchievement", 1);
+        PlayerPrefs.SetInt("TimeAchievement", 1);
+        PlayerPrefs.SetInt("OrdersComboAchievement", 1);
+    }
+
+    public void setShaderCompletion()
+    {
+        gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1);
     }
     public void CheckForCompletion()
     {

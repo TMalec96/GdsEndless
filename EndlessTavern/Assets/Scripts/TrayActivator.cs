@@ -6,8 +6,14 @@ public class TrayActivator : MonoBehaviour
 {
 
     private List<OrderDishSpawner> trays = new List<OrderDishSpawner>();
+    [SerializeField]
+    Canvas gameCanvas;
+    [SerializeField]
+    int timeToPrepear = 6;
+    GameObject getReadyText;
     void Start()
     {
+        getReadyText = gameCanvas.transform.Find("GetReadyText").gameObject;
         GetChilds();
         StartCoroutine(SetActiveTraysNumber(3));
 
@@ -23,8 +29,18 @@ public class TrayActivator : MonoBehaviour
     {
         for (int i =0; i < number; i++)
         {
-            yield return new WaitForSeconds(2);
-            trays[i].gameObject.SetActive(true);
+            if (i == 0)
+            {
+                yield return new WaitForSeconds(timeToPrepear);
+                trays[i].gameObject.SetActive(true);
+            }
+            else
+            {
+                getReadyText.SetActive(false);
+                yield return new WaitForSeconds(1);
+                trays[i].gameObject.SetActive(true);
+            }
+           
             
         }
     }

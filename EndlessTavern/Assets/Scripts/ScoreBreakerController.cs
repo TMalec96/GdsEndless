@@ -17,6 +17,8 @@ public class ScoreBreakerController : MonoBehaviour
     string congratsTextBiggestOrders = "Most good orders";
     [SerializeField]
     string congratsTextBiggesBoth = "Biggest score and good orders";
+    [SerializeField]
+    string congratsTextNoRecordBreak = "No record broken";
     // Start is called before the first frame update
     void Awake()
     {
@@ -35,26 +37,34 @@ public class ScoreBreakerController : MonoBehaviour
         int maxScore = FindObjectOfType<HiScoreTable>().BiggestScore;
         int maxOrders = FindObjectOfType<MostDishesTable>().BiggestDishesNumber;
 
-        if(currentScore>= maxScore)
+        if(currentScore> maxScore)
         {
-            print("BiggestScore");
+            
             recordBrakerText.gameObject.GetComponent<Text>().text = congratsTextBiggestScore;
             recordBrakerText.gameObject.SetActive(true);
             inputField.gameObject.SetActive(true);
             recordBrokeType = recordType.Score;
         }
-        if(currentGoodOrders>= maxOrders)
+        if(currentGoodOrders> maxOrders)
         {
-            print("BiggestOrders");
+           
             recordBrakerText.gameObject.GetComponent<Text>().text = congratsTextBiggestOrders;
             recordBrakerText.gameObject.SetActive(true);
             inputField.gameObject.SetActive(true);
             recordBrokeType = recordType.Orders;
         }
-        if(currentScore >= maxScore && currentGoodOrders >= maxOrders)
+        if(currentScore > maxScore && currentGoodOrders > maxOrders)
         {
-            print("BiggestBoth");
+          
             recordBrakerText.gameObject.GetComponent<Text>().text = congratsTextBiggesBoth;
+            recordBrakerText.gameObject.SetActive(true);
+            inputField.gameObject.SetActive(true);
+            recordBrokeType = recordType.Both;
+        }
+        if (currentScore <= maxScore && currentGoodOrders <= maxOrders)
+        {
+            
+            recordBrakerText.gameObject.GetComponent<Text>().text = congratsTextNoRecordBreak;
             recordBrakerText.gameObject.SetActive(true);
             inputField.gameObject.SetActive(true);
             recordBrokeType = recordType.Both;
@@ -77,6 +87,7 @@ public class ScoreBreakerController : MonoBehaviour
                 FindObjectOfType<HiScoreTable>().AddHiscoreEntry(currentScore, name);
                 break;
         }
+        inputField.gameObject.SetActive(false);
     }
     // Update is called once per frame
     void Update()

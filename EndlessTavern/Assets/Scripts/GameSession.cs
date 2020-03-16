@@ -28,6 +28,16 @@ public class GameSession : MonoBehaviour
     [SerializeField]
     int thirdInterwal = 30;
 
+    [Header("Score Multiplayer")]
+    [SerializeField]
+    int dishMultiply = 3;
+    [SerializeField]
+    float scoreMultiplayerBase = 1f;
+    [SerializeField]
+    float scoreMultiplayer = 0.2f;
+
+
+
 
     private float globalTime = 0;
     private int goodOrdersCombo = 0;
@@ -106,13 +116,17 @@ public class GameSession : MonoBehaviour
 
     public void AddToScore(int value)
     {
-        score += value;
+        score += Convert.ToInt32(value*scoreMultiplayerBase);
         checkForScoreAchievementCompletion();
     }
     public void AddToGoodOrders(int value)
     {
         goodOrdersCombo += 1;
         goodOrders += value;
+        if(goodOrders%dishMultiply == 0)
+        {
+            scoreMultiplayerBase += scoreMultiplayer;
+        }
         checkForOrdersAchievementCompletion();
         GrantBonusPointsForGoodOrdersInRow();
         checkForDishSpeedProgression();

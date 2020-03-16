@@ -11,6 +11,7 @@ public class HiScoreTable : MonoBehaviour
 
     private List<Transform> hiscoreEntryTransformList;
     private List<HiscoreEntry> hiscoreEntryList;
+    private List<Transform> hiscoresInstances = new List<Transform>();
     private int biggestScore;
 
     public int BiggestScore { get => biggestScore; set => biggestScore = value; }
@@ -55,6 +56,7 @@ public class HiScoreTable : MonoBehaviour
         entryTemplate.gameObject.SetActive(false);
         float templateHeight = 30f;
         Transform entryTransform = Instantiate(entryTemplate, container);
+        hiscoresInstances.Add(entryTransform);
         RectTransform entryRectTransform = entryTransform.GetComponent<RectTransform>();
         entryRectTransform.anchoredPosition = new Vector2(0, -templateHeight * transformList.Count);
         entryTransform.gameObject.SetActive(true);
@@ -67,6 +69,10 @@ public class HiScoreTable : MonoBehaviour
 
     public void AddHiscoreEntry(int score,string name)
     {
+        foreach (Transform hiscoreInstance in hiscoresInstances)
+        {
+            Destroy(hiscoreInstance.gameObject);
+        }
         //Create HighscoreEntry
         HiscoreEntry highscoreEntry = new HiscoreEntry { score = score, name = name };
         //Load saved Highscores
@@ -87,7 +93,11 @@ public class HiScoreTable : MonoBehaviour
     }
     public void ResetHiscoresTable()
     {
-        HiscoreEntry highscoreEntry = new HiscoreEntry { score = 0, name = "Player" };
+        foreach (Transform hiscoreInstance in hiscoresInstances)
+        {
+            Destroy(hiscoreInstance.gameObject);
+        }
+        HiscoreEntry highscoreEntry = new HiscoreEntry { score = 0, name = "" };
         Highscores highscores = new Highscores();
         highscores.hiscoreEntryList.Add(highscoreEntry);
         //Save updated Highscores
