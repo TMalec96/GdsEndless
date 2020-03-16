@@ -43,7 +43,7 @@ public class ScoreBreakerController : MonoBehaviour
             recordBrakerText.gameObject.GetComponent<Text>().text = congratsTextBiggestScore;
             recordBrakerText.gameObject.SetActive(true);
             inputField.gameObject.SetActive(true);
-            recordBrokeType = recordType.Score;
+            recordBrokeType = recordType.Both;
         }
         if(currentGoodOrders> maxOrders)
         {
@@ -51,7 +51,7 @@ public class ScoreBreakerController : MonoBehaviour
             recordBrakerText.gameObject.GetComponent<Text>().text = congratsTextBiggestOrders;
             recordBrakerText.gameObject.SetActive(true);
             inputField.gameObject.SetActive(true);
-            recordBrokeType = recordType.Orders;
+            recordBrokeType = recordType.Both;
         }
         if(currentScore > maxScore && currentGoodOrders > maxOrders)
         {

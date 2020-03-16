@@ -83,6 +83,10 @@ public class OrderDishSpawner : MonoBehaviour
     {
         currentTimeforOrderCompletion -= Time.deltaTime;
         timerInstance.transform.GetChild(0).GetComponent<RadialProgress>().Timer = currentTimeforOrderCompletion;
+        if(currentTimeforOrderCompletion <= 7)
+        {
+            GetComponent<AudioSource>().Play();
+        }
     }
     private void checkForOrderTimeOut()
     {

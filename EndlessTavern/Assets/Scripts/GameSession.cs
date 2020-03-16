@@ -36,6 +36,13 @@ public class GameSession : MonoBehaviour
     [SerializeField]
     float scoreMultiplayer = 0.2f;
 
+    [Header("Audio")]
+    [SerializeField]
+    AudioClip goodOrderAudio;
+    [SerializeField]
+    AudioClip wrongOrderAudio;
+    
+
 
 
 
@@ -121,6 +128,7 @@ public class GameSession : MonoBehaviour
     }
     public void AddToGoodOrders(int value)
     {
+        playAudio(goodOrderAudio);
         goodOrdersCombo += 1;
         goodOrders += value;
         if(goodOrders%dishMultiply == 0)
@@ -153,6 +161,7 @@ public class GameSession : MonoBehaviour
 
     public void AddToBadOrders(int value)
     {
+        playAudio(wrongOrderAudio);
         goodOrdersCombo = 0;
         badOrders += value;
     }
@@ -183,6 +192,11 @@ public class GameSession : MonoBehaviour
         {
             timeAchievement.IsComplete = true;
         }
+    }
+    public void playAudio(AudioClip clip)
+    {
+        GetComponent<AudioSource>().clip = clip;
+        GetComponent<AudioSource>().Play();
     }
 
 
