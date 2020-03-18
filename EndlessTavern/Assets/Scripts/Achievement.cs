@@ -50,17 +50,23 @@ public class Achievement : MonoBehaviour
         PlayerPrefs.SetInt("ScoreAchievement", 0);
         PlayerPrefs.SetInt("TimeAchievement", 0);
         PlayerPrefs.SetInt("OrdersComboAchievement", 0);
+        setShaderInCompletion();
     }
     public void UnlockAchievementsProgress()
     {
         PlayerPrefs.SetInt("ScoreAchievement", 1);
         PlayerPrefs.SetInt("TimeAchievement", 1);
         PlayerPrefs.SetInt("OrdersComboAchievement", 1);
+        setShaderCompletion();
     }
 
     public void setShaderCompletion()
     {
         gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1);
+    }
+    public void setShaderInCompletion()
+    {
+        gameObject.GetComponent<SpriteRenderer>().color = new Color(0,0,0);
     }
     public void CheckForCompletion()
     {
@@ -68,12 +74,15 @@ public class Achievement : MonoBehaviour
         {
             case (AchievementType.Score):
                 complete = PlayerPrefs.GetInt("ScoreAchievement");
+                print(complete);
                 break;
             case (AchievementType.Time):
                 complete = PlayerPrefs.GetInt("TimeAchievement");
+                print(complete);
                 break;
             case (AchievementType.OrdersCombo):
                 complete = PlayerPrefs.GetInt("OrdersComboAchievement");
+                print(complete);
                 break;
         }
     }

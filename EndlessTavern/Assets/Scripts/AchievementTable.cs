@@ -29,7 +29,10 @@ public class AchievementTable : MonoBehaviour
             {
                 achievement.setShaderCompletion();
                 achievementsCounter++;
-
+            }
+            else
+            {
+                achievement.setShaderInCompletion();
             }
                 //wyświetla zrobione achiv
                 
@@ -68,7 +71,7 @@ public class AchievementTable : MonoBehaviour
         foreach (Achievement achievement in achievements)
         {
             achievement.ResetAchievementsProgress();
-            print(achievement.Complete.ToString());
+            
         }
     }
     public void UnlockAllAchievementsProgress()
@@ -76,7 +79,7 @@ public class AchievementTable : MonoBehaviour
         foreach (Achievement achievement in achievements)
         {
             achievement.UnlockAchievementsProgress();
-            print(achievement.Complete.ToString());
+           
         }
     }
 }
