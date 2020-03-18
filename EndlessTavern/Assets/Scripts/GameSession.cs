@@ -137,7 +137,7 @@ public class GameSession : MonoBehaviour
         }
         checkForOrdersAchievementCompletion();
         GrantBonusPointsForGoodOrdersInRow();
-        checkForDishSpeedProgression();
+        //checkForDishSpeedProgression();
 
 
     }

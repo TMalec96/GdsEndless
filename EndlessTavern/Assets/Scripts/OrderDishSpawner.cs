@@ -48,7 +48,7 @@ public class OrderDishSpawner : MonoBehaviour
     List<GameObject> customers =  new List<GameObject>();
     private GameObject customer = null;
     private bool orderCompleted = false;
-    private int timerPositionX = -640;
+    private int timerPositionX = -120;
     //variable for testing 
     //private static int orderDelay = 5;
 
@@ -117,19 +117,19 @@ public class OrderDishSpawner : MonoBehaviour
         switch(trayPosition)
         {
             case TrayPositions.Left:
-                timerPositionX = -560;
+                timerPositionX = -480;
                 break;
             case TrayPositions.Middle:
-                timerPositionX = 0;
+                timerPositionX = 180;
                 break;
             case TrayPositions.Right:
-                timerPositionX = 560;
+                timerPositionX = 780;
                 break;
         }
         
         timerInstance = Instantiate(timerPrefab, transform.position, Quaternion.identity);
         Vector2 timerPosition = timerInstance.transform.GetChild(0).transform.position;
-        timerInstance.transform.GetChild(0).transform.position = new Vector2(timerPosition.x + timerPositionX, timerPosition.y);
+        timerInstance.transform.GetChild(0).transform.position = new Vector2(timerPosition.x + timerPositionX, timerPosition.y-150);
        
         
     }

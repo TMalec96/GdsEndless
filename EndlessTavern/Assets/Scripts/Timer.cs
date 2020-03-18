@@ -7,18 +7,18 @@ public class Timer : MonoBehaviour
 {
    
     private Text timerText;
-    
+
+    private Slider slider;
 
     // Start is called before the first frame update
     void Start()
     {
-   
-        timerText = GetComponent<Text>();
+        slider = GetComponent<Slider>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        timerText.text = ((int)FindObjectOfType<GameSession>().Timer).ToString();
+        slider.value = ((int)FindObjectOfType<GameSession>().Timer);
     }
 }
