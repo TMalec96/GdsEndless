@@ -30,8 +30,8 @@ public class ScoreDisplay : MonoBehaviour
     {
 
         scoreText.text = gameSession.Score.ToString();
-        goodOrdersText.text = gameSession.BadOrders.ToString();
-        badOrdersText.text = gameSession.GoodOrders.ToString();
-             
+        goodOrdersText.text = gameSession.GoodOrders.ToString();
+        badOrdersText.text = gameSession.BadOrders.ToString();
+
     }
 }
