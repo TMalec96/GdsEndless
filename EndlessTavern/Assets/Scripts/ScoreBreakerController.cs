@@ -14,9 +14,9 @@ public class ScoreBreakerController : MonoBehaviour
     [SerializeField]
     string congratsTextBiggestScore = "Biggest score";
     [SerializeField]
-    string congratsTextBiggestOrders = "Most good orders";
+    string congratsTextBiggestOrders = "Biggest amount of good orders";
     [SerializeField]
-    string congratsTextBiggesBoth = "Biggest score and good orders";
+    string congratsTextBiggesBoth = "Biggest score and amount of good orders";
     [SerializeField]
     string congratsTextNoRecordBreak = "No record broken";
     // Start is called before the first frame update

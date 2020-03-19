@@ -17,10 +17,9 @@ public class OrderDishSpawner : MonoBehaviour
     float minTimeScoreMultiplayer = 0.5f;
     [Header("Dishes Count")]
     [SerializeField]
-    int maxAmountOfGoodOrdersForOneDish = 5;
-    [SerializeField]
-    int maxAmountOfGoodOrdersForTwoDishes = 20;
-    
+    int goodOrdersAmountForDishesNumberChange = 20;
+    private int[] toTweentyDishesTable = { 1, 2, 2, 3 };
+    private int[] afterTweentyDishesTable = { 2, 3 };
 
     [SerializeField]
     List<Dish> dishes = new List<Dish>();
@@ -161,18 +160,16 @@ public class OrderDishSpawner : MonoBehaviour
         List<Dish> excludingDishesList = new List<Dish>();
         excludingDishesList.AddRange(dishes);
         int goodOrdersForNow = FindObjectOfType<GameSession>().GoodOrders;
-        if (goodOrdersForNow < maxAmountOfGoodOrdersForOneDish)
+     
+        if(goodOrdersForNow < goodOrdersAmountForDishesNumberChange)
         {
-            numberOfdishesToAllocate = UnityEngine.Random.Range(1,2);
-        }
-        else if(goodOrdersForNow < maxAmountOfGoodOrdersForTwoDishes)
-        {
-            numberOfdishesToAllocate = UnityEngine.Random.Range(1, 3);
+            numberOfdishesToAllocate = toTweentyDishesTable[UnityEngine.Random.Range(0, toTweentyDishesTable.Length)];
         }
         else
         {
-            numberOfdishesToAllocate = 3;
+            numberOfdishesToAllocate = afterTweentyDishesTable[UnityEngine.Random.Range(0, afterTweentyDishesTable.Length)];
         }
+
         for (int i = 0;i< numberOfdishesToAllocate; i++)
         {
            randomDishIndex = UnityEngine.Random.Range(0, excludingDishesList.Count());
