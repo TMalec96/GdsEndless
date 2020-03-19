@@ -53,7 +53,7 @@ public class MostDishesTable : MonoBehaviour
     private void CreateMostDishesEntryTransform(MostDishesEntry mostDishesEntry, Transform container, List<Transform> transformList)
     {
         entryTemplate.gameObject.SetActive(false);
-        float templateHeight = 30f;
+        float templateHeight = 50f;
         Transform entryTransform = Instantiate(entryTemplate, container);
         recordsInstances.Add(entryTransform);
         RectTransform entryRectTransform = entryTransform.GetComponent<RectTransform>();

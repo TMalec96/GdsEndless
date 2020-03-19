@@ -54,7 +54,7 @@ public class HiScoreTable : MonoBehaviour
     private void CreateHiscoreEntryTransform(HiscoreEntry hiscoreEntry, Transform container, List<Transform> transformList)
     {
         entryTemplate.gameObject.SetActive(false);
-        float templateHeight = 30f;
+        float templateHeight = 50f;
         Transform entryTransform = Instantiate(entryTemplate, container);
         hiscoresInstances.Add(entryTransform);
         RectTransform entryRectTransform = entryTransform.GetComponent<RectTransform>();
