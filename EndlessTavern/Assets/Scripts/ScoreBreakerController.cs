@@ -12,13 +12,13 @@ public class ScoreBreakerController : MonoBehaviour
     Transform recordBrakerText;
     Transform inputField;
     [SerializeField]
-    string congratsTextBiggestScore = "Biggest score";
+    string congratsTextBiggestScore = "You shown them!";
     [SerializeField]
-    string congratsTextBiggestOrders = "Biggest amount of good orders";
+    string congratsTextBiggestOrders = "You serve those plates fast!";
     [SerializeField]
-    string congratsTextBiggesBoth = "Biggest score and amount of good orders";
+    string congratsTextBiggesBoth = "You are the best!";
     [SerializeField]
-    string congratsTextNoRecordBreak = "No record broken";
+    string congratsTextNoRecordBreak = "Try better next time!";
     // Start is called before the first frame update
     void Awake()
     {
@@ -45,7 +45,7 @@ public class ScoreBreakerController : MonoBehaviour
             inputField.gameObject.SetActive(true);
             recordBrokeType = recordType.Both;
         }
-        if(currentGoodOrders> maxOrders)
+        else if(currentGoodOrders> maxOrders)
         {
            
             recordBrakerText.gameObject.GetComponent<Text>().text = congratsTextBiggestOrders;
@@ -53,7 +53,7 @@ public class ScoreBreakerController : MonoBehaviour
             inputField.gameObject.SetActive(true);
             recordBrokeType = recordType.Both;
         }
-        if(currentScore > maxScore && currentGoodOrders > maxOrders)
+        else if(currentScore > maxScore && currentGoodOrders > maxOrders)
         {
           
             recordBrakerText.gameObject.GetComponent<Text>().text = congratsTextBiggesBoth;
@@ -61,7 +61,7 @@ public class ScoreBreakerController : MonoBehaviour
             inputField.gameObject.SetActive(true);
             recordBrokeType = recordType.Both;
         }
-        if (currentScore <= maxScore && currentGoodOrders <= maxOrders)
+        else if (currentScore <= maxScore && currentGoodOrders <= maxOrders)
         {
             
             recordBrakerText.gameObject.GetComponent<Text>().text = congratsTextNoRecordBreak;
