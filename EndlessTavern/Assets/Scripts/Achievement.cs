@@ -62,11 +62,11 @@ public class Achievement : MonoBehaviour
 
     public void setShaderCompletion()
     {
-        gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1);
+        gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1,1);
     }
     public void setShaderInCompletion()
     {
-        gameObject.GetComponent<SpriteRenderer>().color = new Color(0,0,0);
+        gameObject.GetComponent<SpriteRenderer>().color = new Color(1,1,1,0.5f);
     }
     public void CheckForCompletion()
     {

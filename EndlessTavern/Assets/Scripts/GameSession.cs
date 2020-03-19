@@ -57,8 +57,9 @@ public class GameSession : MonoBehaviour
     public float Timer { get => timer;
         set
         {
-            if (value+timer > 30)
+            if (value > 30)
             {
+                print(value);
                 timer = 30;
             }
             else
