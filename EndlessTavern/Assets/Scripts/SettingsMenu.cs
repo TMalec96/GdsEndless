@@ -21,7 +21,7 @@ public class SettingsMenu : MonoBehaviour
     }
     private void InitializeToggles()
     {
-        print("togglesInit");
+        
         musicToggle = transform.Find("MusicToggle").gameObject.GetComponent<Toggle>();
         sfxToggle = transform.Find("SFXToggle").gameObject.GetComponent<Toggle>();
         musicToggle.isOn = UpdateMusicToggleStatus();

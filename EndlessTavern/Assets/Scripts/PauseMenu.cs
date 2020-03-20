@@ -14,13 +14,13 @@ public class PauseMenu : MonoBehaviour
 
         if (Time.timeScale == 0f)
         {
-            print("unpause");
+           
             Time.timeScale = 1f;
             paused = false;
         }
         else
         {
-            print("pause");
+            
             Time.timeScale = 0f;
             paused = true;
 

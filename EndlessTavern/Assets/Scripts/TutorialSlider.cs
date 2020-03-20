@@ -7,6 +7,8 @@ public class TutorialSlider : MonoBehaviour
 {
     [SerializeField]
     Sprite [] tutorialSlides = new Sprite [3];
+    [SerializeField]
+    Canvas tutorialCanvas;
     private int spriteIndex = 0;
     // Start is called before the first frame update
     void Start()
@@ -21,8 +23,8 @@ public class TutorialSlider : MonoBehaviour
             GetComponent<SpriteRenderer>().sprite = tutorialSlides[spriteIndex];
         if (spriteIndex == tutorialSlides.Length-1)
         {
-            FindObjectOfType<Canvas>().transform.GetChild(0).gameObject.SetActive(false);
-            FindObjectOfType<Canvas>().transform.GetChild(2).gameObject.SetActive(true);
+            tutorialCanvas.transform.GetChild(0).gameObject.SetActive(false);
+            tutorialCanvas.transform.GetChild(2).gameObject.SetActive(true);
         }
          
 

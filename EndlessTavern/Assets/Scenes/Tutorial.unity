@@ -408,6 +408,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2811463120318672094, guid: d998a09c696d58048b1a7ad7f4fc51cf,
+        type: 3}
+      propertyPath: m_Name
+      value: LevelLoader
+      objectReference: {fileID: 0}
     - target: {fileID: 8544031861777941121, guid: d998a09c696d58048b1a7ad7f4fc51cf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -462,11 +467,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2811463120318672094, guid: d998a09c696d58048b1a7ad7f4fc51cf,
-        type: 3}
-      propertyPath: m_Name
-      value: LevelLoader
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d998a09c696d58048b1a7ad7f4fc51cf, type: 3}
@@ -739,7 +739,7 @@ GameObject:
   - component: {fileID: 1880526317}
   - component: {fileID: 1880526316}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: TutorialCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -861,6 +861,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 8bccd315cad120247962747bee9ec0c1, type: 3}
   - {fileID: 21300000, guid: 039f4b3c3013bfd4ba7c9e6a7f2c5eef, type: 3}
   - {fileID: 21300000, guid: c7799b0c204f25d4fbee58e39d694b08, type: 3}
+  tutorialCanvas: {fileID: 1880526318}
 --- !u!212 &2014993100
 SpriteRenderer:
   m_ObjectHideFlags: 0
