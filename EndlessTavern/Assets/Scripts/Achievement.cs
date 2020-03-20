@@ -62,11 +62,13 @@ public class Achievement : MonoBehaviour
 
     public void setShaderCompletion()
     {
-        gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1,1);
+        gameObject.transform.Find("AchievementComplete").gameObject.SetActive(true);
+        gameObject.transform.Find("AchievementIncomplete").gameObject.SetActive(false);
     }
     public void setShaderInCompletion()
     {
-        gameObject.GetComponent<SpriteRenderer>().color = new Color(1,1,1,0.5f);
+        gameObject.transform.Find("AchievementComplete").gameObject.SetActive(false);
+        gameObject.transform.Find("AchievementIncomplete").gameObject.SetActive(true);
     }
     public void CheckForCompletion()
     {

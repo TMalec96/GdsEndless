@@ -46,7 +46,15 @@ MonoBehaviour:
   timer: 15
   scoreAchievement: {fileID: 4155521900657304573, guid: b5b75ad2eaaeb9d41944c313105fd749,
     type: 3}
-  timeAchievement: {fileID: 3505360645150219402, guid: 2fb368e7ffbbd9847b1337a7c40ed8c8,
+  timeAchievement: {fileID: 4155521900657304573, guid: 8be978fb28611c84388b16064ba184f8,
     type: 3}
-  ordersAchievement: {fileID: 6718599304378245882, guid: 70c48841c0bbee545b92a00fc85556e8,
+  ordersAchievement: {fileID: 4155521900657304573, guid: 1f8c762cbadf77c43babc1c742d6c8a2,
     type: 3}
+  firstInterwal: 10
+  secondInterwal: 20
+  thirdInterwal: 30
+  dishMultiply: 3
+  scoreMultiplayerBase: 1
+  scoreMultiplayer: 0.2
+  goodOrderAudio: {fileID: 0}
+  wrongOrderAudio: {fileID: 0}

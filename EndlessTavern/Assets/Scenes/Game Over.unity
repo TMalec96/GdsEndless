@@ -1718,9 +1718,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e227b29b29eb59e4f8df060c81e5ef33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  congratsTextBiggestScore: Biggest score
-  congratsTextBiggestOrders: Most good orders
-  congratsTextBiggesBoth: Biggest score and good orders
+  congratsTextBiggestScore: You shown them!
+  congratsTextBiggestOrders: You serve those plates fast!
+  congratsTextBiggesBoth: You are the best!
+  congratsTextNoRecordBreak: Try better next time!
 --- !u!114 &1486833938 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4860336967691138132, guid: d998a09c696d58048b1a7ad7f4fc51cf,

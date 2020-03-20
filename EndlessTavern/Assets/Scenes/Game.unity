@@ -1855,6 +1855,18 @@ PrefabInstance:
       propertyPath: wrongOrderAudio
       value: 
       objectReference: {fileID: 8300000, guid: 4092267b8f1f5d6459155382a8664baa, type: 3}
+    - target: {fileID: 1127060383747335319, guid: e421cf5e5065ec54da13b74d0193061b,
+        type: 3}
+      propertyPath: timeAchievement
+      value: 
+      objectReference: {fileID: 4155521900657304573, guid: 8be978fb28611c84388b16064ba184f8,
+        type: 3}
+    - target: {fileID: 1127060383747335319, guid: e421cf5e5065ec54da13b74d0193061b,
+        type: 3}
+      propertyPath: ordersAchievement
+      value: 
+      objectReference: {fileID: 4155521900657304573, guid: 1f8c762cbadf77c43babc1c742d6c8a2,
+        type: 3}
     - target: {fileID: 1127060383747335318, guid: e421cf5e5065ec54da13b74d0193061b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2095,6 +2107,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2811463120318672094, guid: d998a09c696d58048b1a7ad7f4fc51cf,
+        type: 3}
+      propertyPath: m_Name
+      value: LevelLoader
+      objectReference: {fileID: 0}
     - target: {fileID: 8544031861777941121, guid: d998a09c696d58048b1a7ad7f4fc51cf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2150,11 +2167,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2811463120318672094, guid: d998a09c696d58048b1a7ad7f4fc51cf,
-        type: 3}
-      propertyPath: m_Name
-      value: LevelLoader
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d998a09c696d58048b1a7ad7f4fc51cf, type: 3}
 --- !u!1001 &4596496743489305387
@@ -2168,6 +2180,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Background
+      objectReference: {fileID: 0}
+    - target: {fileID: 4596496742170149026, guid: 9df848626f5e0954996453e5cbb5e075,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 4596496742170149027, guid: 9df848626f5e0954996453e5cbb5e075,
         type: 3}
@@ -2224,11 +2241,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4596496742170149026, guid: 9df848626f5e0954996453e5cbb5e075,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: -5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9df848626f5e0954996453e5cbb5e075, type: 3}
 --- !u!1001 &8025444923745840819
@@ -2243,6 +2255,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 8025444923055091422, guid: adbdaec1c6fcf664c99247661f93fcef,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1549111875}
     - target: {fileID: 8025444923055091418, guid: adbdaec1c6fcf664c99247661f93fcef,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2348,11 +2365,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8025444923055091422, guid: adbdaec1c6fcf664c99247661f93fcef,
-        type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1549111875}
     - target: {fileID: 8025444924382993273, guid: adbdaec1c6fcf664c99247661f93fcef,
         type: 3}
       propertyPath: m_AnchorMax.y
