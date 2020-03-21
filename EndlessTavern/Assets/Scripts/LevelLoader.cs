@@ -11,8 +11,8 @@ public class LevelLoader : MonoBehaviour
     {
         
         transitionAnim.SetTrigger("end");
-        yield return new WaitForSeconds(0.5f);
-        SceneManager.LoadSceneAsync(sceneNumber);
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(sceneNumber);
 
     }
    public void LoadMenuScene()
