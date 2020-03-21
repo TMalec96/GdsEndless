@@ -133,6 +133,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2811463120318672094, guid: d998a09c696d58048b1a7ad7f4fc51cf,
+        type: 3}
+      propertyPath: m_Name
+      value: LevelLoader
+      objectReference: {fileID: 0}
+    - target: {fileID: 2811463120318672094, guid: d998a09c696d58048b1a7ad7f4fc51cf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8544031861777941121, guid: d998a09c696d58048b1a7ad7f4fc51cf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -187,16 +197,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2811463120318672094, guid: d998a09c696d58048b1a7ad7f4fc51cf,
-        type: 3}
-      propertyPath: m_Name
-      value: LevelLoader
-      objectReference: {fileID: 0}
-    - target: {fileID: 2811463120318672094, guid: d998a09c696d58048b1a7ad7f4fc51cf,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3329467774005130352, guid: d998a09c696d58048b1a7ad7f4fc51cf,
         type: 3}
@@ -434,7 +434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3c170a0506d1c641b2aefa7f8ff732a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationDelay: 0.2
+  animationDelay: 1
 --- !u!95 &155967413
 Animator:
   serializedVersion: 3
@@ -597,6 +597,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &322760760 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5784390785363029782, guid: 571af0585ac82ed4abe9a0da363d4377,
+    type: 3}
+  m_PrefabInstance: {fileID: 1138380210452948645}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &322760765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322760760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3c170a0506d1c641b2aefa7f8ff732a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationDelay: 0.5
 --- !u!224 &406023353 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8478178720557439962, guid: 4b9226ccb976f9a418ea96779ba5a724,
@@ -664,7 +683,7 @@ PrefabInstance:
     - target: {fileID: 8478178720557439962, guid: 4b9226ccb976f9a418ea96779ba5a724,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8478178720557439962, guid: 4b9226ccb976f9a418ea96779ba5a724,
         type: 3}
@@ -988,7 +1007,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3c170a0506d1c641b2aefa7f8ff732a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationDelay: 0.5
+  animationDelay: 2.5
 --- !u!95 &874502741
 Animator:
   serializedVersion: 3
@@ -1259,7 +1278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3c170a0506d1c641b2aefa7f8ff732a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationDelay: 0.1
+  animationDelay: 0.5
 --- !u!1 &1264815477
 GameObject:
   m_ObjectHideFlags: 0
@@ -1312,7 +1331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3c170a0506d1c641b2aefa7f8ff732a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationDelay: 0.3
+  animationDelay: 1.5
 --- !u!95 &1264815480
 Animator:
   serializedVersion: 3
@@ -1635,7 +1654,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3c170a0506d1c641b2aefa7f8ff732a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationDelay: 0.4
+  animationDelay: 2
 --- !u!95 &1870359833
 Animator:
   serializedVersion: 3
