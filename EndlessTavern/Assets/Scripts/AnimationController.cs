@@ -5,7 +5,7 @@ using UnityEngine;
 public class AnimationController : MonoBehaviour
 {
     [SerializeField]
-    int animationDelay = 0;
+    float animationDelay = 0.5f;
     
     private Animator animator;
     // Start is called before the first frame update
