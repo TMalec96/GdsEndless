@@ -84,8 +84,7 @@ MonoBehaviour:
   maxTimeScoreMultiplayer: 1
   midTimeScoreMultiplayer: 0.75
   minTimeScoreMultiplayer: 0.5
-  maxAmountOfGoodOrdersForOneDish: 5
-  maxAmountOfGoodOrdersForTwoDishes: 20
+  goodOrdersAmountForDishesNumberChange: 20
   dishes:
   - {fileID: 2664888216739570421, guid: ecc3764d34299b24ca124e8e2a35ed18, type: 3}
   - {fileID: 2649732546379002803, guid: 589e3f4a689c3d04abce96581919112f, type: 3}
@@ -106,6 +105,11 @@ MonoBehaviour:
   - {fileID: 2744799285428399870, guid: 8625e0896fbc68b4d9d62f0946ca0f55, type: 3}
   - {fileID: 2744799285428399870, guid: d91f05d20880aff4db69869e296ff3bc, type: 3}
   - {fileID: 2744799285428399870, guid: ea780ccef03ab9a4489f87fb0f7b9dfd, type: 3}
+  - {fileID: 2744799285428399870, guid: b02e5798d7b31e441a9372011f4c9603, type: 3}
+  - {fileID: 2744799285428399870, guid: 19d7c52299be3774fb2f9b5547b8bc29, type: 3}
+  - {fileID: 2744799285428399870, guid: 594c49df502155f4abd643e845003b55, type: 3}
+  - {fileID: 2744799285428399870, guid: afda3d2eae347164daafdb4f46959e2f, type: 3}
+  - {fileID: 2744799285428399870, guid: 868a5ddabc137eb4694086c85f3ac1d7, type: 3}
 --- !u!61 &224133947725778087
 BoxCollider2D:
   m_ObjectHideFlags: 0
