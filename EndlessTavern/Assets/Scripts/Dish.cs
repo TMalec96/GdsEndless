@@ -5,10 +5,10 @@ using UnityEngine;
 public enum Dishes
 {
     Fish,
-    Beer,
+    Shake,
     Burger,
     Fries,
-    Rum
+    Pizza
 }
 public class Dish : MonoBehaviour
 {
